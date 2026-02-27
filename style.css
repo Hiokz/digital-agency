@@ -155,8 +155,14 @@ a {
     color: var(--text-primary);
 }
 
-.nav-links .btn-primary {
+.nav-links a.btn-primary {
     color: var(--bg-main);
+}
+
+.nav-links a.btn-primary:hover {
+    color: var(--bg-main);
+    background: var(--text-muted);
+    /* Optional: slight change on hover for the button itself if desired, or let the generic button hover apply */
 }
 
 .hamburger {
