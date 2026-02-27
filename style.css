@@ -574,6 +574,24 @@ a {
     gap: 32px;
 }
 
+.products-grid.grid-2-col {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.products-grid.grid-1-col {
+    grid-template-columns: 1fr;
+    max-width: 450px;
+    margin: 0 auto;
+}
+
+@media (max-width: 1024px) {
+    .products-grid.grid-2-col {
+        grid-template-columns: 1fr;
+    }
+}
+
 .product-card {
     background: var(--bg-card);
     border: var(--border-glass);
