@@ -161,8 +161,10 @@ a {
 
 .nav-links a.btn-primary:hover {
     color: var(--bg-main);
-    background: var(--text-muted);
-    /* Optional: slight change on hover for the button itself if desired, or let the generic button hover apply */
+    /* Removing the background override so it retains its premium white appearance */
+    /* Relying on the global .btn-primary:hover for the scale and shadow */
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    /* Add a distinct premium glow */
 }
 
 .hamburger {
