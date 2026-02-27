@@ -666,6 +666,10 @@ a {
     transition: all var(--transition-fast);
 }
 
+.form-group textarea {
+    resize: none;
+}
+
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
