@@ -426,6 +426,28 @@ a {
     line-height: 1.5;
 }
 
+.bento-footer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    z-index: 1;
+}
+
+.bento-price {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--accent-primary);
+    font-family: var(--font-heading);
+    background: rgba(59, 130, 246, 0.1);
+    padding: 6px 16px;
+    border-radius: 100px;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
 /* Bento Grid Spans */
 .col-span-2 {
     grid-column: span 2;
