@@ -1030,16 +1030,19 @@ footer {
 .work-image-container {
     position: relative;
     width: 100%;
-    min-height: 400px;
-    overflow: hidden;
+    min-height: 300px;
     background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
 }
 
 @media (min-width: 992px) {
     .work-image-container {
-        flex: 1.5;
-        /* Takes up 60% of the space horizontally */
-        min-height: 500px;
+        flex: 1.2;
+        /* Takes up a bit more than half, but allows the full image to fit better */
+        min-height: 400px;
     }
 }
 
@@ -1055,10 +1058,10 @@ footer {
 .work-image {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: top;
+    object-fit: contain;
+    object-position: center;
     transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-    opacity: 0.85;
+    opacity: 0.9;
 }
 
 .work-showcase:hover .work-image {
