@@ -1020,6 +1020,13 @@ footer {
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
+@media (min-width: 992px) {
+    .work-showcase {
+        flex-direction: row;
+        align-items: stretch;
+    }
+}
+
 .work-image-container {
     position: relative;
     width: 100%;
@@ -1030,8 +1037,19 @@ footer {
 
 @media (min-width: 992px) {
     .work-image-container {
-        min-height: 600px;
+        flex: 1.5;
+        /* Takes up 60% of the space horizontally */
+        min-height: 500px;
     }
+}
+
+.work-details {
+    flex: 1;
+    /* Takes up 40% of the space horizontally */
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .work-image {
@@ -1066,11 +1084,6 @@ footer {
 
 .work-image-container:hover .work-overlay {
     opacity: 1;
-}
-
-.work-details {
-    flex: 1;
-    padding: 40px;
 }
 
 .work-tags {
