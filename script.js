@@ -87,4 +87,92 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // --- Custom Animated Dropdowns ---
+    const customSelectSources = document.querySelectorAll('.custom-select-source');
+
+    customSelectSources.forEach(select => {
+        // Hide the original select
+        select.classList.add('hidden-select');
+
+        // Create the custom wrapper
+        const wrapper = document.createElement('div');
+        wrapper.className = 'custom-select-container';
+        // Insert wrapper right before the select, then move select into it
+        select.parentNode.insertBefore(wrapper, select);
+        wrapper.appendChild(select);
+
+        // Create the trigger div (the visible "button")
+        const trigger = document.createElement('div');
+        trigger.className = 'custom-select-trigger';
+
+        // Find the currently selected option to show its text
+        let selectedOption = select.options[select.selectedIndex];
+        let placeholderText = "Select an option";
+        if (selectedOption) {
+            placeholderText = selectedOption.text;
+        }
+
+        trigger.innerHTML = `
+            <span class="trigger-text">${placeholderText}</span>
+            <i class="fas fa-chevron-down arrow-icon"></i>
+        `;
+        wrapper.appendChild(trigger);
+
+        // Create the options container
+        const optionsContainer = document.createElement('div');
+        optionsContainer.className = 'custom-options-container';
+        wrapper.appendChild(optionsContainer);
+
+        // Create an option div for each non-disabled option in the original select
+        Array.from(select.options).forEach((option, index) => {
+            const optionDiv = document.createElement('div');
+            optionDiv.className = 'custom-option';
+            optionDiv.textContent = option.text;
+            optionDiv.dataset.value = option.value;
+
+            // If it's a disabled/placeholder option, style and hide it
+            if (option.disabled && option.value === "") {
+                optionDiv.classList.add('is-placeholder');
+            }
+
+            // Click event for the option
+            optionDiv.addEventListener('click', (e) => {
+                e.stopPropagation();
+                // Update the trigger text
+                trigger.querySelector('.trigger-text').textContent = optionDiv.textContent;
+
+                // Update the native select value
+                select.value = optionDiv.dataset.value;
+
+                // Remove selected class from all and add to this
+                optionsContainer.querySelectorAll('.custom-option').forEach(opt => opt.classList.remove('selected'));
+                optionDiv.classList.add('selected');
+
+                // Close the dropdown
+                wrapper.classList.remove('open');
+            });
+
+            optionsContainer.appendChild(optionDiv);
+        });
+
+        // Toggle dropdown open/close on trigger click
+        trigger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            // Close any other open dropdowns first
+            document.querySelectorAll('.custom-select-container').forEach(container => {
+                if (container !== wrapper) {
+                    container.classList.remove('open');
+                }
+            });
+            wrapper.classList.toggle('open');
+        });
+    });
+
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.custom-select-container').forEach(container => {
+            container.classList.remove('open');
+        });
+    });
+
 });
