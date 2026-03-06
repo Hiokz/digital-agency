@@ -37,40 +37,6 @@
     --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Light Theme Overrides */
-body.light-theme {
-    /* Base Colors */
-    --bg-main: #f8fafc;
-    /* Slate 50 */
-    --bg-card: rgba(255, 255, 255, 0.7);
-    --bg-card-hover: rgba(255, 255, 255, 0.9);
-
-    --text-primary: #0f172a;
-    /* Slate 900 */
-    --text-muted: #64748b;
-    /* Slate 500 */
-
-    /* Borders */
-    --border-glass: 1px solid rgba(0, 0, 0, 0.08);
-    --border-glass-hover: 1px solid rgba(0, 0, 0, 0.2);
-}
-
-body.light-theme input,
-body.light-theme textarea,
-body.light-theme select {
-    background: rgba(255, 255, 255, 0.8);
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    color: var(--text-primary);
-}
-
-body.light-theme input:focus,
-body.light-theme textarea:focus,
-body.light-theme select:focus {
-    border-color: var(--accent-primary);
-    background: #fff;
-    box-shadow: 0 0 0 2px var(--accent-glow);
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -196,24 +162,6 @@ a {
 .nav-links a.btn-primary:hover {
     color: var(--bg-main);
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-}
-
-/* Theme Toggle Button */
-.theme-toggle {
-    background: transparent;
-    border: none;
-    color: var(--text-muted);
-    font-size: 20px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all var(--transition-fast);
-}
-
-.theme-toggle:hover {
-    color: var(--accent-primary);
-    transform: scale(1.1);
 }
 
 .hamburger {
@@ -791,11 +739,6 @@ a {
     padding-top: 20px;
 }
 
-body.light-theme .testimonial-author {
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
-    /* Darker border for light theme */
-}
-
 .author-avatar {
     width: 48px;
     height: 48px;
@@ -808,11 +751,6 @@ body.light-theme .testimonial-author {
     font-weight: 700;
     font-size: 18px;
     flex-shrink: 0;
-}
-
-body.light-theme .author-avatar {
-    color: #fff;
-    /* Ensure text remains visible inside dynamic colored avatars in light mode */
 }
 
 .author-info h4 {

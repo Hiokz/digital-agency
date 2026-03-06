@@ -21,41 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Theme Toggle Functionality ---
-    const themeToggle = document.getElementById('theme-toggle');
-    const themeIcon = themeToggle.querySelector('i');
 
-    const savedTheme = localStorage.getItem('theme');
-
-    // We default to dark theme. If light is saved, apply it.
-    if (savedTheme === 'light') {
-        document.body.classList.remove('dark-theme');
-        document.body.classList.add('light-theme');
-        themeIcon.classList.replace('fa-sun', 'fa-moon');
-    }
-
-    themeToggle.addEventListener('click', () => {
-        // Clear transition delays to prevent staggering bugs
-        document.querySelectorAll('.show').forEach(el => {
-            el.style.transitionDelay = '0ms';
-        });
-
-        const isLight = document.body.classList.contains('light-theme');
-
-        if (isLight) {
-            // Switch to Dark
-            document.body.classList.remove('light-theme');
-            document.body.classList.add('dark-theme');
-            themeIcon.classList.replace('fa-moon', 'fa-sun');
-            localStorage.setItem('theme', 'dark');
-        } else {
-            // Switch to Light
-            document.body.classList.remove('dark-theme');
-            document.body.classList.add('light-theme');
-            themeIcon.classList.replace('fa-sun', 'fa-moon');
-            localStorage.setItem('theme', 'light');
-        }
-    });
 
     // --- Navbar Background on Scroll ---
     const navbar = document.querySelector('.navbar');
