@@ -37,6 +37,27 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // --- Scroll Reveal Animations ---
+    const revealElements = document.querySelectorAll('.animate-on-scroll');
+
+    const revealOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px"
+    };
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, revealOptions);
+
+    revealElements.forEach(el => {
+        revealObserver.observe(el);
+    });
+
     // --- Staggered Scroll Reveals ---
     const observerOptions = {
         root: null,

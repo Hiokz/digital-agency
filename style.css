@@ -1133,12 +1133,12 @@ select {
 
 .custom-select-container.open .custom-select-trigger {
     border-color: var(--accent-primary);
-    background: rgba(9, 9, 11, 0.8);
-    box-shadow: 0 0 0 4px var(--accent-glow);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 0 2px var(--accent-glow);
 }
 
 .custom-select-trigger .arrow-icon {
-    font-size: 12px;
+    font-size: 14px;
     color: var(--text-muted);
     transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
